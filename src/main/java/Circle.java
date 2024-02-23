@@ -17,7 +17,8 @@ public class Circle
      */
     public Circle()
     {
-
+        location = new Point();
+        radius = 1.0;
     }
 
     /**
@@ -28,7 +29,8 @@ public class Circle
      */
     public Circle(double radius)
     {
-
+        this.radius = radius;
+        location = new Point();
     }
 
     /**
@@ -40,6 +42,8 @@ public class Circle
      */
     public Circle(Point location, double radius)
     {
+        this.radius = radius;
+        this.location = new Point(location);
 
     }
 
@@ -51,7 +55,7 @@ public class Circle
      */
     public double getRadius()
     {
-
+        return radius;
     }
 
     /**
@@ -61,7 +65,7 @@ public class Circle
      */
     public Point getLocation()
     {
-
+        return new Point(location);
     }
 
     // mutator methods
@@ -72,7 +76,7 @@ public class Circle
      */
     public void setRadius(double radius)
     {
-
+        this.radius = radius;
     }
 
     /**
@@ -82,7 +86,7 @@ public class Circle
      */
     public void setLocation(Point location)
     {
-
+        this.location = new Point(location);
     }
 
     // other methods
@@ -94,7 +98,7 @@ public class Circle
      */
     public boolean contains(Point p)
     {
-
+        return location.distanceTo(p) <= radius;
     }
 
     /**
@@ -105,7 +109,7 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
-
+        return location.distanceTo(aCircle.location) <= (radius + aCircle.radius);
     }
 
     /**
